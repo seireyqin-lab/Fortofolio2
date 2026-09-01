@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Muhammad Syafiq</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+
+        @keyframes rgbGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .bg-rgb-animated {
+            background: linear-gradient(90deg, #ff0055, #7000ff, #00e5ff, #00ff66, #ff0055);
+            background-size: 300% 300%;
+            animation: rgbGradient 4s ease infinite;
+        }
+
+        .text-rgb-animated {
+            background: linear-gradient(90deg, #ff0055, #9d00ff, #00d4ff, #00ff66, #ff0055);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rgbGradient 4s ease infinite;
+        }
+
+        .border-rgb-bottom { position: relative; }
+        .border-rgb-bottom::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, #ff0055, #7000ff, #00e5ff, #00ff66, #ff0055);
+            background-size: 300% 300%; animation: rgbGradient 3s linear infinite;
+        }
+
+        .hover-rgb-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.35), 0 0 12px rgba(255, 0, 85, 0.35);
+            border-color: rgba(0, 229, 255, 0.6);
+        }
+
+        /* Class untuk menyembunyikan & menampilkan bagian */
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased min-h-screen flex flex-col justify-between selection:bg-cyan-500/30 selection:text-cyan-200 overflow-x-hidden">
+
+    <nav class="fixed top-0 w-full bg-slate-900/90 backdrop-blur-md z-50 border-rgb-bottom">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+            <a href="#" onclick="switchTab('beranda')" class="text-3xl sm:text-4xl font-extrabold text-rgb-animated tracking-tight">Syafiq.</a>
+            
+            <div class="flex items-center gap-3 sm:gap-8 text-base sm:text-xl font-bold text-slate-300">
+                <button onclick="switchTab('beranda')" id="btn-beranda" class="nav-btn px-4 py-2 rounded-lg text-cyan-400 transition-all">Beranda</button>
+                <button onclick="switchTab('tentang')" id="btn-tentang" class="nav-btn px-4 py-2 rounded-lg hover:text-cyan-400 transition-all">Tentang</button>
+                <button onclick="switchTab('keahlian')" id="btn-keahlian" class="nav-btn px-4 py-2 rounded-lg hover:text-cyan-400 transition-all">Keahlian</button>
+                <button onclick="switchTab('proyek')" id="btn-proyek" class="nav-btn px-4 py-2 rounded-lg hover:text-cyan-400 transition-all">Proyek</button>
+                <button onclick="switchTab('kontak')" id="btn-kontak" class="nav-btn relative group p-0.5 rounded-xl overflow-hidden hidden sm:inline-block">
+                    <span class="absolute inset-0 bg-rgb-animated"></span>
+                    <span class="relative px-6 py-2.5 bg-slate-900 hover:bg-transparent text-white font-bold rounded-[10px] transition-all flex items-center gap-2 text-base sm:text-lg">
+                        <i data-lucide="send" class="w-5 h-5 text-cyan-400 group-hover:text-white transition-colors"></i>
+                        <span>Kontak</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center pt-28 pb-12 px-6 relative">
+        <div class="absolute top-1/3 left-1/4 w-[350px] h-[350px] bg-purple-600/20 rounded-full blur-[140px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/3 right-1/4 w-[350px] h-[350px] bg-cyan-500/20 rounded-full blur-[140px] -z-10 pointer-events-none"></div>
+
+        <section id="tab-beranda" class="tab-content active w-full max-w-6xl">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 flex justify-center md:justify-end">
+                    <div class="relative group">
+                        <div class="absolute -inset-2 bg-rgb-animated rounded-full blur-xl opacity-80"></div>
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 border-slate-900 bg-slate-800 shadow-2xl">
+                            <img src="syafiq.jpeg" alt="Muhammad Syafiq Darmawan" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 text-center md:text-left">
+                    <span class="inline-flex items-center gap-2.5 px-4 py-2 text-sm sm:text-base font-bold tracking-wider text-cyan-300 uppercase bg-cyan-500/10 rounded-full border border-cyan-500/30">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-400"></span>
+                        </span>
+                        Tersedia untuk PKL
+                    </span>
+                    
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold mt-6 text-white tracking-tight leading-tight">
+                        Halo, Saya <br class="hidden sm:inline">
+                        <span class="text-rgb-animated">Muhammad Syafiq Darmawan</span>
+                    </h1>
+
+                    <p class="mt-6 text-lg sm:text-2xl text-slate-300 max-w-2xl leading-relaxed">
+                        Siswa berdedikasi dari <span class="text-white font-bold">SMKN 1 Purwosari</span> jurusan <span class="text-white font-bold">RPL</span>. Memiliki semangat tinggi dalam bidang <span class="text-cyan-400 font-bold">Software Engineering</span> dan siap berkontribusi di dunia industri.
+                    </p>
+
+                    <div class="mt-10 flex flex-wrap gap-5 justify-center md:justify-start">
+                        <button onclick="switchTab('proyek')" class="relative group p-0.5 rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                            <span class="absolute inset-0 bg-rgb-animated"></span>
+                            <span class="relative px-8 py-4 bg-slate-900 group-hover:bg-opacity-80 text-white font-bold rounded-[10px] flex items-center gap-3 text-base sm:text-lg">
+                                Lihat Proyek Saya
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-cyan-400"></i>
+                            </span>
+                        </button>
+                        
+                        <a href="link-cv-anda.pdf" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl border border-slate-700 transition-all flex items-center gap-3 text-base sm:text-lg">
+                            <i data-lucide="download" class="w-5 h-5"></i> Unduh CV (PDF)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-tentang" class="tab-content w-full max-w-5xl">
+            <div class="bg-slate-800/50 border border-slate-700/70 rounded-3xl p-8 sm:p-12 shadow-2xl backdrop-blur-md">
+                <div class="grid md:grid-cols-12 gap-10 items-center">
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative group w-full max-w-xs">
+                            <div class="absolute -inset-1.5 bg-rgb-animated rounded-3xl blur-md opacity-75"></div>
+                            <div class="relative aspect-[4/5] bg-slate-900 rounded-3xl overflow-hidden border-2 border-slate-700 shadow-2xl">
+                                <img src="syafiq.jpeg" alt="Foto Tentang Saya" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-7">
+                        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-8 flex items-center gap-4">
+                            <span class="w-10 h-1.5 bg-rgb-animated rounded-full"></span> Tentang Saya
+                        </h2>
+                        <div class="space-y-5 text-slate-200 leading-relaxed text-lg sm:text-xl font-normal">
+                            <p>Saya adalah individu yang antusias dan disiplin, saat ini menempuh pendidikan di <span class="text-white font-bold">SMKN 1 Purwosari</span>. Saya memiliki ketertarikan kuat untuk mendalami dunia praktis dan teknologi terbaru.</p>
+                            <p>Selama studi, saya fokus mengasah fondasi dalam <span class="text-cyan-400 font-bold">Pengembangan Aplikasi & Web</span> melalui proyek-proyek praktikum dan pembelajaran mandiri. Saya terbiasa memecahkan masalah dengan pendekatan yang terstruktur.</p>
+                            <p>Melalui program PKL ini, saya berharap dapat memberikan kontribusi nyata bagi tim, mempelajari alur kerja profesional industri, serta terus mengasah kemampuan teknis saya.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-keahlian" class="tab-content w-full max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Keahlian Teknikal</h2>
+                <p class="text-slate-300 mt-3 text-lg sm:text-xl">Teknologi dan alat yang biasa saya gunakan dalam membangun proyek.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                <div class="p-8 bg-slate-800/60 rounded-3xl border border-slate-700/60 text-center hover-rgb-glow transition-all group shadow-xl">
+                    <i data-lucide="code-2" class="w-12 h-12 text-slate-400 group-hover:text-orange-500 mx-auto mb-4 transition-colors"></i>
+                    <span class="font-bold text-lg sm:text-xl text-slate-100">HTML</span>
+                </div>
+                <div class="p-8 bg-slate-800/60 rounded-3xl border border-slate-700/60 text-center hover-rgb-glow transition-all group shadow-xl">
+                    <i data-lucide="palette" class="w-12 h-12 text-slate-400 group-hover:text-blue-500 mx-auto mb-4 transition-colors"></i>
+                    <span class="font-bold text-lg sm:text-xl text-slate-100">CSS</span>
+                </div>
+                <div class="p-8 bg-slate-800/60 rounded-3xl border border-slate-700/60 text-center hover-rgb-glow transition-all group shadow-xl">
+                    <i data-lucide="wind" class="w-12 h-12 text-slate-400 group-hover:text-teal-400 mx-auto mb-4 transition-colors"></i>
+                    <span class="font-bold text-lg sm:text-xl text-slate-100">Tailwind</span>
+                </div>
+                <div class="p-8 bg-slate-800/60 rounded-3xl border border-slate-700/60 text-center hover-rgb-glow transition-all group shadow-xl">
+                    <i data-lucide="file-json" class="w-12 h-12 text-slate-400 group-hover:text-yellow-400 mx-auto mb-4 transition-colors"></i>
+                    <span class="font-bold text-lg sm:text-xl text-slate-100">JavaScript</span>
+                </div>
+                <div class="p-8 bg-slate-800/60 rounded-3xl border border-slate-700/60 text-center hover-rgb-glow transition-all group shadow-xl">
+                    <svg class="w-12 h-12 mx-auto mb-4 transition-transform group-hover:scale-110" viewBox="0 0 38 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z" fill="#0ACF83"/>
+                        <path d="M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z" fill="#1ABCFE"/>
+                        <path d="M0 28.5C0 23.2533 4.25329 19 9.5 19H19V38H9.5C4.25329 38 0 33.7467 0 28.5Z" fill="#A259FF"/>
+                        <path d="M0 9.5C0 4.25329 4.25329 0 9.5 0H19V19H9.5C4.25329 19 0 14.7467 0 9.5Z" fill="#F24E1E"/>
+                        <path d="M19 0H28.5C33.7467 0 38 4.25329 38 9.5C38 14.7467 33.7467 19 28.5 19H19V0Z" fill="#FF7262"/>
+                    </svg>
+                    <span class="font-bold text-lg sm:text-xl text-slate-100">Figma</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-proyek" class="tab-content w-full max-w-4xl">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight flex items-center gap-4">
+                    <span class="w-10 h-1.5 bg-rgb-animated rounded-full"></span> Showcase Proyek
+                </h2>
+                </a>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-slate-800/60 rounded-3xl p-10 sm:p-12 border border-slate-700/80 flex flex-col justify-between hover-rgb-glow transition-all shadow-2xl">
+                    <div>
+                        <div class="flex items-center gap-5 mb-6">
+                            <i data-lucide="smartphone" class="w-12 h-12 text-cyan-400"></i>
+                            <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Apple Web</h3>
+                        </div>
+                        <p class="text-slate-300 text-lg sm:text-xl leading-relaxed mb-8">
+                            Situs web landing page produk Apple (iPhone) yang dibuat dengan tampilan modern, elegan, serta responsif.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-10">
+                            <span class="px-5 py-2 text-sm sm:text-base font-semibold bg-slate-900 text-slate-200 rounded-xl border border-slate-700">HTML5</span>
+                            <span class="px-5 py-2 text-sm sm:text-base font-semibold bg-slate-900 text-teal-400 rounded-xl border border-slate-700">Tailwind</span>
+                            <span class="px-5 py-2 text-sm sm:text-base font-semibold bg-slate-900 text-yellow-400 rounded-xl border border-slate-700">JavaScript</span>
+                        </div>
+                    </div>
+                    <a href="http://127.0.0.1:5500/tes.html" class="text-lg sm:text-xl text-cyan-400 font-extrabold inline-flex items-center gap-3 hover:underline">
+                        Apple Web Copy <i data-lucide="external-link" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-kontak" class="tab-content w-full max-w-3xl text-center">
+            <div class="bg-slate-800/50 border border-slate-700/70 rounded-3xl p-10 sm:p-14 shadow-2xl backdrop-blur-md">
+                <i data-lucide="messages-square" class="w-16 h-16 text-cyan-400 mx-auto mb-6"></i>
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">Mari Berdiskusi</h2>
+                <p class="text-slate-300 text-lg sm:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+                    Saya sangat bersemangat untuk belajar dan berkontribusi di perusahaan Anda. Silakan hubungi saya melalui kontak di bawah!
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-5">
+                    <a href="mailto:darmawanmuhammad808@gmail.com" class="relative group p-0.5 rounded-xl overflow-hidden hover:scale-105 transition-transform">
+                        <span class="absolute inset-0 bg-rgb-animated"></span>
+                        <span class="relative px-8 py-4 bg-slate-900 group-hover:bg-opacity-80 text-white font-bold rounded-[10px] flex items-center justify-center gap-3 text-base sm:text-lg">
+                            <i data-lucide="mail" class="w-5 h-5 text-cyan-400"></i> darmawanmuhammad808@gmail.com
+                        </span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/usernameanda" target="_blank" class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl border border-slate-700 transition-all flex items-center justify-center gap-3 text-base sm:text-lg">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-5 text-center text-sm sm:text-base text-slate-400 border-t border-slate-800">
+        &copy; 2026 Muhammad Syafiq Darmawan. All rights reserved.
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function switchTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const selectedTab = document.getElementById('tab-' + tabName);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('text-cyan-400');
+                btn.classList.add('hover:text-cyan-400');
+            });
+
+            const activeBtn = document.getElementById('btn-' + tabName);
+            if (activeBtn && tabName !== 'kontak') {
+                activeBtn.classList.add('text-cyan-400');
+            }
+        }
+    </script>
+</body>
+</html>
